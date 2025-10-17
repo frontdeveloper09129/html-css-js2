@@ -1,0 +1,227 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main-container {
+  background-color: #FFFFFF;
+  width: 100%;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #808080;
+  height: 70px;
+  position: relative;
+  top: 25px;
+}
+
+.container h1 {
+  color: #000;
+  font-size: 36px;
+}
+
+.container ul li {
+  display: inline;
+  margin: 10px;
+  font-size: 15px;
+}
+
+.container ul li a {
+  color: black;
+  text-decoration: none;
+}
+
+.container ul li a:hover {
+  background-color: #FFFFFF;
+  box-shadow: 0px 5px 10px gray;
+  border-radius: 5px;
+}
+.container input {
+      width: 0;
+      opacity: 0;
+      border: none;
+      border-radius: 8px;
+      padding: 6px 10px;
+      transition: all 0.4s ease;
+      outline: none;
+    }
+
+    .container input.active {
+      width: 200px;
+      opacity: 1;
+      box-shadow: 0 4px 10px gray;
+    }
+    .container i {
+      cursor: pointer;
+      font-size: 18px;
+      color: black;
+      margin-left: 10px;
+      transition: color 0.3s;
+    }
+
+    .container i:hover {
+      color: white;
+    }
+.container i {
+  font-size: 17px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+.container-image {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.container-image img {
+  width: 100%;
+  height: 80vh;
+  object-fit: cover;
+  position: absolute;
+  top: 110px;
+  opacity: 0;
+  animation: slide 9s infinite;
+}
+
+.container-image img:nth-child(1) { animation-delay: 0s; }
+.container-image img:nth-child(2) { animation-delay: 3s; }
+.container-image img:nth-child(3) { animation-delay: 6s; }
+
+@keyframes slide {
+  0% { opacity: 0; transform: translateX(100%); }
+  5% { opacity: 1; transform: translateX(0); }
+  30% { opacity: 1; transform: translateX(0); }
+  35% { opacity: 0; transform: translateX(-100%); }
+  100% { opacity: 0; }
+}
+
+/* Shop container */
+.container-for-shop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.container-shope-itm {
+  background-color: #FFFFFF;
+  box-shadow: 0px 10px 20px #808080;
+  border-radius: 11px;
+  width: 95%;
+  height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-shope-itm input {
+  width: 300px;
+  font: 10px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0px 5px 10px gray;
+  height: 40px;
+  position: relative;
+  top: -300px;
+}
+
+
+.container-shop {
+  width: 100%;
+  height: 120vh
+}
+
+.container-input {
+  width: 100%;
+  height: 100px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-input input {
+  width: 300px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 5px 10px gray;
+}
+
+.container-input i {
+  position: relative;
+  left: 10px;
+}
+
+
+.container-image2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.container-image2 img {
+  width: 300px;
+  height: 400px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0px 5px 10px gray;
+  position: relative;
+  top: 70px;
+  transition: 0.3s ease;
+}
+
+.container-image2 img:hover {
+  transform: scale(1.1);
+}
+
+.container-input.active {
+  width: 200px;
+  opacity: 1;
+  box-shadow: 0 4px 10px gray;
+}
+
+.container-input i {
+  cursor: pointer;
+  font-size: 18px;
+  color: black;
+  margin-left: 10px;
+  transition: color 0.3s;
+}
+
+.container-input i:hover {
+  cursor: pointer;
+}
+
+.container-image3 {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  top: 30px;
+}
+
+.container-image3 img {
+  width: 300px;
+  height: 400px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0px 5px 10px gray;
+  position: relative;
+  top: 100px;
+  transition: 0.3s ease;
+}
+
+.container-image3 img:hover {
+  transform: scale(1.1);
+
+}
+
