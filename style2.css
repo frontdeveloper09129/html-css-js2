@@ -16,9 +16,12 @@
   align-items: center;
   padding: 10px 20px;
   background-color: #808080;
-  height: 70px;
-  position: relative;
-  top: 25px;
+  height: 100px;
+}
+
+.container.active {
+  color: white;
+  
 }
 
 .container h1 {
@@ -35,12 +38,13 @@
 .container ul li a {
   color: black;
   text-decoration: none;
+  border-radius: 5px;
 }
 
 .container ul li a:hover {
-  background-color: #FFFFFF;
   box-shadow: 0px 5px 10px gray;
   border-radius: 5px;
+  color: orange;
 }
 .container input {
       width: 0;
@@ -57,7 +61,7 @@
       opacity: 1;
       box-shadow: 0 4px 10px gray;
     }
-    .container i {
+    .container i.active {
       cursor: pointer;
       font-size: 18px;
       color: black;
@@ -68,16 +72,13 @@
     .container i:hover {
       color: white;
     }
-.container i {
-  font-size: 17px;
-  cursor: pointer;
-  margin-left: 10px;
-}
+
 .container-image {
   width: 100%;
   height: 100vh;
   overflow: hidden;
   border-radius: 15px;
+  cursor: pointer;
 }
 
 .container-image img {
@@ -88,6 +89,7 @@
   top: 110px;
   opacity: 0;
   animation: slide 9s infinite;
+  cursor: pointer;
 }
 
 .container-image img:nth-child(1) { animation-delay: 0s; }
@@ -177,6 +179,7 @@
   position: relative;
   top: 70px;
   transition: 0.3s ease;
+  cursor: pointer;
 }
 
 .container-image2 img:hover {
@@ -218,10 +221,12 @@
   position: relative;
   top: 100px;
   transition: 0.3s ease;
+  cursor: pointer;
 }
 
 .container-image3 img:hover {
   transform: scale(1.1);
 
 }
+
 
