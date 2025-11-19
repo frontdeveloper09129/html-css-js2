@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Background */
+body {
+    background: pink;
+    font-family: Arial, sans-serif;
+}
+
+/* Main full container */
+.container {
+    width: 100%;
+    height: 100vh;
+    background-color: pink;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+/* TOP AREA: images + move text */
+.first-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    padding-top: 30px;
+}
+
+/* Player and Robot images */
+.first-screen img {
+    width: 280px;
+    height: 380px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+/* Move text under */
+.move {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.move p {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+/* PLAY button and winner text */
+.btn {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.btn button {
+    width: 80px;
+    height: 35px;
+    border-radius: 8px;
+    border: none;
+    background: white;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+#winner {
+    font-size: 22px;
+    margin-top: 8px;
+}
+
+/* PICK MOVE POPUP */
+.pick-move {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Show popup when active */
+.pick-move.active {
+    display: flex;
+}
+
+/* Popup box */
+.human-container {
+    background: rgb(255, 118, 143);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+/* Popup buttons */
+.pick-move button {
+    width: 80px;
+    height: 35px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0px 10px 10px gray;
+    cursor: pointer;
+    margin: 25px;
+    font-size: 16px;
+}
+
+/* Single Start button (start2) */
+.start2 {
+    margin: 20px auto;
+    width: 90px;
+    height: 40px;
+    border-radius: 8px;
+    border: none;
+    background: white;
+    cursor: pointer;
+    display: block;
+}
