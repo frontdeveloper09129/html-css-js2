@@ -1,137 +1,274 @@
-const playBtn = document.getElementById("button-play");
-const pickMove = document.querySelector(".pick-move");
-const yourMove = document.getElementById("your-move");
-const images = document.querySelector(".images");
-const start2 = document.querySelector(".start2");
-const PckYourMove = document.querySelector(".human-images");
+const start = document.querySelector(".start");
+const cardGames = document.getElementById("card-games");
+const btn = document.getElementById("button");
+const click = document.getElementById("click");
+const count = document.getElementById("count");
+const bet = document.getElementById("bet");
+const bets = document.querySelector(".bet-container");
 
-
-const computerMove = [
-  "https://imageio.forbes.com/specials-images/imageserve/dv424076/Boulder--Namibia--Africa/960x0.jpg?format=jpg&width=960",
-  "https://5.imimg.com/data5/SELLER/Default/2021/1/QM/ZC/SY/33749133/white-art-paper.jpg",
-  "https://img.freepik.com/premium-vector/isolated-open-scissors-symbol-set-scissors-cutting-paperscissoring_1114531-6359.jpg?semt=ais_hybrid&w=740&q=80"
-];
-
-//const images = document.querySelector(".images");
-//images.src = computerMove[0]; // ✅ correct
-
-playBtn.addEventListener("click", function() {
-    pickMove.classList.add("active");
-});
-
-let clicked = false;
-
-document.querySelector(".rock-btn").addEventListener("click", function () {
-    yourMove.textContent = "rock";
-    clicked = true
-});
-
-document.querySelector(".start").addEventListener("click", function() {
-    humanMove();
-});
-
-document.querySelector(".paper-btn").addEventListener("click", function() {
-    yourMove.textContent = "paper";
-    clicked = true
-});
-
-document.querySelector(".scisccor-btn").addEventListener("click", function() {
-    yourMove.textContent = "scisccor";
-    clicked = true
-});
-
-function changesImage() {
-    const randomIndex = Math.floor(Math.random() * computerMove.length);
-    const selectMove = computerMove[randomIndex]
-
-    images.src = selectMove; 
-} 
-
-function time() {
-    const setInterval1 = setInterval(changesImage, 100);
-    const getThefinalImage = images.src;
-    console.log(getThefinalImage)
-
+btn.addEventListener("click", function() {
+    cardGames.classList.add("active");
+    btn.classList.add("active")
     setTimeout(() => {
-    clearInterval(setInterval1); // stop the image change
-    }, 5000);
-}
+        click.classList.add("active")
+        bet.classList.add("active")
 
-const human_pick_move = document.getElementById("human-move");
-const robot_pick_move = document.getElementById("robot-move");
-const myScores = document.getElementById("my-score");
-const robotScores = document.getElementById("robot-score");
+    }, 3000);
 
 
-let myScore = 0
-let robotScore = 0 
-let robotMove = "";
-function humanMove() {
+    displayscreen();
+})
+
+bet.addEventListener("click", function() {
+    bets.classList.toggle("active")
+})
+let counts = 3
+function displayscreen() {
+
+    const thirdScreen = document.querySelector(".third-screen")
+    const secondScreen = document.querySelector(".second-screen")
+    const cards = document.querySelector(".CARDS")
+    secondScreen.classList.add("active")
+    count.textContent = counts
+  
+
+    // COUNT DOWN
+        setInterval(function() {
+            counts--;
+
+            if (counts === 3) {
+                count.textContent = 3;
+            } else if (counts === 2) {
+                count.textContent = 2;
+            } else if (counts === 1) {
+                count.textContent = 1
+            } else if (counts === 0) {
+                count.textContent = counts
+                console.log(counts)
+                thirdScreen.classList.toggle("active")
+                cards.classList.add("active")
+                secondScreen.classList.remove("active")
+            }
+        }, 1000)
 
     
-    if (clicked === false) {
-        yourMove.textContent = "please pick your move!..";
-        return
-    } 
-        const valueSpan = yourMove.textContent;
-        const setInterval1 = setInterval(changesImage, 100); //setInterval runs a function repeatedly at a set interval (every X milliseconds).
+}
 
-       
+const kingCards = document.getElementById("king-cards");
+const quenCardsCards = document.getElementById("quen-cards");
+const jackCards = document.getElementById("jack-cards");
+const alasCards = document.getElementById("alas-cards");
+const teenCards = document.getElementById("teen-cards");
+const nineCards = document.getElementById("nine-cards")
+
+
+
+const alphabet = [
+  "A","B","C","D","E","F","G","H","I","J","K","L","M",
+  "N","O","P","Q","R","S","T","U","V","W","X","Y","Z"
+];
+
+
+
+let balance = 50
+let userBalanceBet = 0
+let bool = true
+function randomCards() {
+
+    const userBalance = document.getElementById("balance");
+      const btnBets = document.querySelectorAll(".btn-bets button"); 
+        btnBets.forEach((button, index) => {
+                button.addEventListener("click", () => {
+                    if (index === 0) {
+                        balance -= 10
+                        console.log(balance)
+                        userBalanceBet = balance
+                        console.log(userBalanceBet)
+                        userBalance.textContent = balance
+                    } else if (index === 1) {
+                        balance -= 20
+                        console.log(balance)
+                        userBalanceBet = balance
+                        console.log(userBalanceBet)
+                        userBalance.textContent = balance
+                    } else if (index === 2) {
+                        balance -= 30
+                        console.log(balance)
+                        userBalanceBet = balance
+                        console.log(userBalanceBet)
+                        userBalance.textContent = balance
+                    } else if (index === 3) {
+                        balance -= 40
+                        console.log(balance)
+                        userBalanceBet = balance
+                        console.log(userBalanceBet)
+                        userBalance.textContent = balance
+                    } else if (index === 4) {
+                        balance -= 50
+                        console.log(balance)
+                        userBalanceBet = balance
+                        console.log(userBalanceBet)
+                        userBalance.textContent = balance
+                    }
+
+                    if(balance < 0) {
+                        console.log("sorry you dont have enough balance to bet")
+                        userBalance.textContent = 0
+                    }
+      
+                })
+
+
+        });
+        
+      
+    // when click the button click the user will get yhier cards
+    click.addEventListener("click", () => {
+        const description = document.getElementById("discription");
+        const spinning = setInterval(() => { // i use setinterval for the repeated value so meaning it will reapeat the code like (a b c d e...... and so on, it will stop until he reach it goal)
+            const random = alphabet[Math.floor(Math.random() * alphabet.length)]
+            kingCards.textContent = random
+            
+
+        
+            
+        }, 50)
+
+        setTimeout(() => { // i use set time out to stop setinterval
+            clearInterval(spinning)
+        }, 2000);
+
+        const spinning2 = setInterval(() => { // i use setinterval for the repeated value so meaning it will reapeat the code like (a b c d e...... and so on, it will stop until he reach it goal)
+            const random = alphabet[Math.floor(Math.random() * alphabet.length)];
+            quenCardsCards.textContent = random
+            
+        }, 50)
 
         setTimeout(() => {
-        clearInterval(setInterval1); // clearInterval is a built-in JavaScript function that stops a repeating action started by setInterval.
+            clearInterval(spinning2)
+        }, 3000);
 
-        const getFinalItem = images.src;
-        const winner = document.getElementById("winner")
+        const spinning3 = setInterval(() => { // i use setinterval for the repeated value so meaning it will reapeat the code like (a b c d e...... and so on, it will stop until he reach it goal)
+            const random = alphabet[Math.floor(Math.random() * alphabet.length)];
+            jackCards.textContent = random
+            
+        }, 50)
 
+        setTimeout(() => {
+            clearInterval(spinning3)
+        }, 4000)
 
-        if (getFinalItem === computerMove[0]) {
-            robotMove = "rock"
-            robot_pick_move.textContent = robotMove
-        } else if (getFinalItem === computerMove[1]) {
-            robotMove = "paper"
-            robot_pick_move.textContent = robotMove
-        } else if (getFinalItem === computerMove[2]) {
-            robotMove = "scisccor"
-            robot_pick_move.textContent = robotMove
-        }
+        const spinning4 = setInterval(() => { // i use setinterval for the repeated value so meaning it will reapeat the code like (a b c d e...... and so on, it will stop until he reach it goal)
+            const random = alphabet[Math.floor(Math.random() * alphabet.length)]
+            alasCards.textContent = random
+            
+        }, 50)
 
-        if (valueSpan === robotMove) {
-            winner.textContent = "winner: draw";
-        }
-        else if (
-            (valueSpan === "rock"     && robotMove === "scisccor") ||
-            (valueSpan === "paper"    && robotMove === "rock") ||
-            (valueSpan === "scisccor" && robotMove === "paper")
-        ) {
-            winner.textContent = "winner: you win";
-            myScore++;
-            myScores.textContent = myScore;
-        }
-        else {
-            winner.textContent = "winner: you lose";
-            robotScore++;
-            robotScores.textContent = robotScore;
-        }
-
+        setTimeout(() => {
+            clearInterval(spinning4)
         }, 5000);
 
-      
 
-      
+        const spinning5 = setInterval(() => { // i use setinterval for the repeated value so meaning it will reapeat the code like (a b c d e...... and so on, it will stop until he reach it goal)
+            const random = alphabet[Math.floor(Math.random() * alphabet.length)]
+            teenCards.textContent = random
+            
+        }, 50)
 
-        if (valueSpan === "rock") {
-            PckYourMove.src = computerMove[0];
-            human_pick_move.textContent = "my move: rock"
-        } else if (valueSpan === "paper") {
-            PckYourMove.src = computerMove[1];
-            human_pick_move.textContent = "my move: paper"
-        } else if (valueSpan === "scisccor") {
-            PckYourMove.src = computerMove[2];
-            human_pick_move.textContent = "my move: scisccor"
-        };
+        setTimeout(() => {
+            clearInterval(spinning5)
+        }, 6000);
 
-     pickMove.classList.remove("active");
-};
+        const spinning6 = setInterval(() => { // i use setinterval for the repeated value so meaning it will reapeat the code like (a b c d e...... and so on, it will stop until he reach it goal)
+            const random = alphabet[Math.floor(Math.random() * alphabet.length)]
+            nineCards.textContent = random
+            
+        }, 50)
 
-//setInterval() is a built-in function that lets you run some code repeatedly every few milliseconds.
+        setTimeout(() => {
+            clearInterval(spinning6)
+        }, 7000)
+
+        if (balance < 0) {
+            clearInterval(spinning);
+            clearInterval(spinning2);
+            clearInterval(spinning3);
+            clearInterval(spinning4);
+            clearInterval(spinning5);
+            clearInterval(spinning6);
+
+            description.textContent = "Sorry, your balance is 0";
+            description.style.color = "white"  
+
+            setTimeout(() => {
+                description.textContent = ""
+            }, 2000)
+        }
+
+        // --- all your spinning intervals here --- //
+
+    setTimeout(() => {
+        clearInterval(spinning6);
+
+        const values = [
+            kingCards.textContent,
+            quenCardsCards.textContent,
+            jackCards.textContent,
+            teenCards.textContent,
+            nineCards.textContent
+        ];
+
+        const count = {};
+        values.forEach(letters => {
+            count[letters] = (count[letters] || 0) +1
+        });
+
+
+        console.log(count)
+
+    
+        const hasDuplicate = new Set(values).size !== values.length;
+
+          for (const letters in count)  {
+            if (count[letters] === 4) {
+                console.log(`Letter ${letters} appears 4 times!`);
+                balance += 50
+                userBalance.textContent = balance
+            }
+            
+            if(counts[letters] === 3) {
+                console.log(`Letter ${letters} appears 3 times!`);
+                balance += 40
+                userBalance.textContent = balance
+            }
+            
+            if (count[letters] == 2) {
+                console.log(`Letter ${letters} appears 2 times!`);
+                balance += 30
+                userBalance.textContent = balance
+            }
+            
+            if (count[letters] === 1) {
+                console.log(`Letter ${letters} appears 1 times!`);
+                balance += 0
+                userBalance.textContent = balance
+            }
+        }
+
+        if (hasDuplicate) {
+            console.log("You got duplicate!");
+        } else {
+            console.log("No duplicates");
+        }
+
+    }, 7000);
+
+
+    })
+}
+
+randomCards();
+
+
+
+
